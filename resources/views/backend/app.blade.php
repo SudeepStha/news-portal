@@ -14,7 +14,7 @@
       content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
     />
     <meta name="robots" content="noindex,nofollow" />
-    <title>Project Template</title>
+    <title>News Portal</title>
     <!-- Favicon icon -->
     <link
       rel="icon"
@@ -87,8 +87,7 @@
                   alt="homepage"
                   class="light-logo"
                 /> --}}
-                Auth name here
-                {{-- {{Auth::user()->name}} --}}
+                {{Auth::user()->name}}
               </span>
               <!-- Logo icon -->
               <!-- <b class="logo-icon"> -->
@@ -352,7 +351,7 @@
         </div>
 
         {{-- content start --}}
-        <div class="container-fluid">
+        <div class="container-fluid" style="height: auto">
             @yield('content')
         </div>
         {{-- content ends --}}
