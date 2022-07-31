@@ -24,8 +24,31 @@
           </li>
           <li class="sidebar-item">
             <a
+              class="sidebar-link has-arrow waves-effect waves-dark"
+              href="javascript:void(0)"
+              aria-expanded="false"
+              ><i class="mdi mdi-receipt"></i
+              ><span class="hide-menu">Member </span></a
+            >
+            <ul aria-expanded="false" class="collapse first-level">
+              <li class="sidebar-item">
+                <a href="/designation" class="sidebar-link"
+                  ><i class="mdi mdi-note-outline"></i
+                  ><span class="hide-menu"> Designation </span></a
+                >
+              </li>
+              <li class="sidebar-item">
+                <a href="/employee" class="sidebar-link"
+                  ><i class="mdi mdi-note-plus"></i
+                  ><span class="hide-menu"> Employee(s)</span></a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="sidebar-item">
+            <a
               class="sidebar-link waves-effect waves-dark sidebar-link"
-              href="#"
+              href="/menu"
               aria-expanded="false"
               ><i class="mdi mdi-view-dashboard"></i
               ><span class="hide-menu">Create Menu</span></a

@@ -47,6 +47,8 @@ class CompanyController extends Controller
             'email'=>'required',
             'reg_no'=>'required',
             'pan_no'=>'required',
+            'ads_email'=>'required',
+            'ads_contact'=>'required'
         ]);
 
         $company = new Company();
@@ -59,6 +61,8 @@ class CompanyController extends Controller
         $company->email = $request->email;
         $company->reg_no = $request->reg_no;
         $company->pan_no = $request->pan_no;
+        $company->ads_email = $request->ads_email;
+        $company->ads_contact = $request->ads_contact;
 
         if($request->has('image')){
             $file = $request->image;
@@ -68,7 +72,7 @@ class CompanyController extends Controller
         }
         $company->save();
 
-        return redirect()->back()->with('status', 'Your Company has been created.');
+        return redirect()->back()->with('status', 'Your Company details has been created.');
 
     }
 
@@ -91,7 +95,8 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $company = Company::find($id);
+        return view('backend.company.edit', compact('company'));
     }
 
     /**
@@ -103,7 +108,43 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'image'=>'required',
+            'province'=>'required',
+            'district'=>'required',
+            'city'=>'required',
+            'street'=>'required',
+            'contact'=>'required',
+            'email'=>'required',
+            'reg_no'=>'required',
+            'pan_no'=>'required',
+            'ads_email'=>'required',
+            'ads_contact'=>'required'
+        ]);
+
+        $company = Company::find($id);
+        $company->name = $request->name;
+        $company->province = $request->province;
+        $company->district = $request->district;
+        $company->city = $request->city;
+        $company->street = $request->street;
+        $company->contact = $request->contact;
+        $company->email = $request->email;
+        $company->reg_no = $request->reg_no;
+        $company->pan_no = $request->pan_no;
+        $company->ads_email = $request->ads_email;
+        $company->ads_contact = $request->ads_contact;
+
+        if($request->has('image')){
+            $file = $request->image;
+            $newName = time() . $file->getClientOriginalName();
+            $file -> move('companyimage',$newName);
+            $company->image = "companyimage/$newName";
+        }
+        $company->update();
+
+        return redirect()->back()->with('status', 'Your Company details has been updated.');
     }
 
     /**

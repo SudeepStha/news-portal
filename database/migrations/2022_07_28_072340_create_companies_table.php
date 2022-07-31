@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('reg_no');
             $table->string('pan_no');
+            $table->string('ads_email');
+            $table->string('ads_contact');
             $table->timestamps();
         });
     }

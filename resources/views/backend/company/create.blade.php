@@ -95,6 +95,22 @@
                                 </div>
                             </div>
                         </div>
+                        <hr class="bg-danger">
+                        <span class="fw-bold fs-4">Detail For ADS</span>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="ads_email">Email<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="ads_email"  type="text" name="ads_email" placeholder="Registration Number" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="ads_contact">Contact<span class="text-danger">*</span></label>
+                                    <input class="form-control" id="ads_contact"  type="text" name="ads_contact" placeholder="Pan Number" required>
+                                </div>
+                            </div>
+                        </div>
                         
                         <button type="submit" class="btn btn-primary float-end">Set Up</button>
                     </form>
