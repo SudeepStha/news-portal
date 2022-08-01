@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\EmployeeController;
@@ -31,3 +32,4 @@ Route::resource('company', CompanyController::class);
 Route::resource('designation', DesignationController::class);
 Route::resource('employee', EmployeeController::class);
 Route::resource('menu', MenuController::class);
+Route::resource('article', ArticleController::class);

@@ -26,12 +26,15 @@
     <link href="/assets/libs/flot/css/float-chart.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="/dist/css/style.min.css" rel="stylesheet" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+    <style>
+      .ck-editor__editable_inline {
+        min-height: 300px;
+      }
+    </style>
 
   </head>
 
@@ -387,6 +390,33 @@
     <script src="/assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="/dist/js/pages/chart/chart-page-init.js"></script>
+
+
+    {{-- ckeditor --}}
+<script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
+
+{{-- select2  --}}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.select2').select2();
+});
+</script>
+
+
+<script>
+  ClassicEditor
+          .create( document.querySelector( '#editor' ) )
+          .then( editor => {
+                  console.log( editor );
+          } )
+          .catch( error => {
+                  console.error( error );
+          } );
+</script>
+
+
 
   </body>
 </html>

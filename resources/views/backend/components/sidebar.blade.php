@@ -57,7 +57,7 @@
           <li class="sidebar-item">
             <a
               class="sidebar-link waves-effect waves-dark sidebar-link"
-              href="#"
+              href="/article"
               aria-expanded="false"
               ><i class="mdi mdi-view-dashboard"></i
               ><span class="hide-menu">Post Article</span></a
