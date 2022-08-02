@@ -33,13 +33,23 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="menu_id">Menu<span class="text-danger">*</span></label>
-                                <select class="form-select" id="menu_id" name="menu_id" value="{{$article->menu->title}}>
-                                    <option value="">--- Select Menu ---</option>
+                                <select class="form-select select2" id="menu_id" name="menu_id[]" multiple='multiple'>
+                                    <option disabled>--- Select Menu ---</option>
                                     @foreach ($menu as $menu)
-                                        <option value="{{$menu->id}}">{{$menu->title}}</option>
+                                        <option value="{{$menu->id}}
+                                            @foreach ($article->menus as $item)
+                                              {{ $menu->id == $item->id ? 'selected' : '' }}
+                                            @endforeach" 
+                                           >
+                                        
+                                        {{$menu->title}}
+                                    </option>
                                     @endforeach
                                 </select>
                             </div>
+                        </div>
+                        <div>
+                        {{$article->menus}}
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">

@@ -96,6 +96,7 @@ class MenuController extends Controller
         $menu->title = $request->title;
         $menu->slug = $request->slug;
         $menu->position = $request->position;
+        $menu->status = $request->has('status') ? 1 : 0;
         $menu->update();
 
         return redirect()->back()->with('status', 'Your menu has been updated successfully.');

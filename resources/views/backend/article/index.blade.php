@@ -28,7 +28,17 @@
                                 <td>{{$article->title}}</td>
                                 <td>{{$article->slug}}</td>
                                 <td>{!! Str::words($article->description, 4, '...') !!}</td>
-                                <td></td>
+                                <td>
+                                    <div class="d-flex justify-content-evenly">
+                                        <a href="/article/{{$article->id}}/edit" class="badge bg-primary">Edit</a>
+                                        <a href="" class="badge bg-info">Show</a>
+                                        <form action="/article/{{$article->id}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                            <button type="submit" class="badge btn bg-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
