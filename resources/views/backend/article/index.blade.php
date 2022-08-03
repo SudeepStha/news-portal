@@ -6,6 +6,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
+                @if (session('status'))
+                    <div class="alert alert-success">{{session('status')}}</div>
+                @endif
                 <div class="card-header">
                     <span class="fw-bold fs-3">Articles</span>
                     <a href="{{ route('article.create') }}" class="btn btn-primary float-end">Add articles</a>
@@ -17,6 +20,7 @@
                                 <th>S.N.</th>
                                 <th>Title</th>
                                 <th>Slug</th>
+                                <th>Menu</th>
                                 <th>Description</th>
                                 <th>More</th>
                             </tr>
@@ -27,11 +31,14 @@
                                 <td>{{ ++$index }}</td>
                                 <td>{{$article->title}}</td>
                                 <td>{{$article->slug}}</td>
+                                <td>
+                                        
+                                </td>
                                 <td>{!! Str::words($article->description, 4, '...') !!}</td>
                                 <td>
                                     <div class="d-flex justify-content-evenly">
                                         <a href="/article/{{$article->id}}/edit" class="badge bg-primary">Edit</a>
-                                        <a href="" class="badge bg-info">Show</a>
+                                        <a href="/article/{{$article->id}}" class="badge bg-info">Show</a>
                                         <form action="/article/{{$article->id}}" method="post">
                                         @csrf
                                         @method('DELETE')

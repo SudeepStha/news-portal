@@ -17,7 +17,8 @@ class ArticleController extends Controller
     public function index()
     {
         $article = Article::all();
-        return View('backend.article.index', compact('article'));
+        $menu = Menu::all();
+        return View('backend.article.index', compact('article', 'menu'));
     }
 
     /**
@@ -43,6 +44,7 @@ class ArticleController extends Controller
             'title' => 'required',
             'slug' => 'required',
             'description' => 'required',
+            'image' => 'required'
         ]);
 
 
@@ -50,6 +52,15 @@ class ArticleController extends Controller
         $article->title = $request->title;
         $article->slug = $request->slug;
         $article->description = $request->description;
+
+        if($request->hasFile('image')){
+            $fileName = $request->image;
+            $newName = time() . $fileName->getClientOriginalName();
+            $fileName->move('article',$newName);
+            $article->image = "article/$newName";
+
+        }
+
         $article->save();
 
         $article->menus()->attach($request->menu_id);
@@ -65,7 +76,8 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::find($id);
+        return view('backend.article.show', compact('article'));
     }
 
     /**
@@ -101,6 +113,9 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+
+        return redirect()->back()->with('status','Your article has been deleted successfully.');
     }
 }

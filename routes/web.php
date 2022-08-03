@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\MenuController;
 use Faker\Provider\ar_EG\Company;
 use Illuminate\Support\Facades\Auth;
@@ -20,9 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class,'home']);
 
 Auth::routes();
 

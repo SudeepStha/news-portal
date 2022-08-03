@@ -48,6 +48,7 @@ class MenuController extends Controller
         $menu->title = $request->title;
         $menu->slug = $request->slug;
         $menu->position = $request->position;
+        $menu->status = $request->status;
         $menu->save();
 
         return redirect()->back()->with('status', 'Your menu has been added successfully.');
@@ -86,6 +87,7 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request);
         $request -> validate([
             'title' => 'required',
             'slug' => 'required',
@@ -96,7 +98,7 @@ class MenuController extends Controller
         $menu->title = $request->title;
         $menu->slug = $request->slug;
         $menu->position = $request->position;
-        $menu->status = $request->has('status') ? 1 : 0;
+        $menu->status = $request->status;
         $menu->update();
 
         return redirect()->back()->with('status', 'Your menu has been updated successfully.');

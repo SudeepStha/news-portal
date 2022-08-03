@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <input id="status" type="checkbox" name="status" value="1">Active
+                                                <input id="status" type="checkbox" name="status" checked value="1">Active
                                             </div>
                                         </div>
                                     </div>

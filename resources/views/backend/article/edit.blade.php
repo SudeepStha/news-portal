@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <span class="fw-bold fs-3">Create Article</span>
+                    <span class="fw-bold fs-3">Edit Article</span>
                     <a href="/article" class="btn btn-secondary float-end">Back</a>
                 </div>
                 <div class="card-body">
@@ -48,9 +48,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div>
-                        {{$article->menus}}
-                        </div>
+                       
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="description">Description<span class="text-danger">*</span></label>
