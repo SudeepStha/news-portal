@@ -31,4 +31,4 @@ Route::resource('company', CompanyController::class);
 Route::resource('designation', DesignationController::class);
 Route::resource('employee', EmployeeController::class);
 Route::resource('menu', MenuController::class);
-Route::resource('article', ArticleController::class);
+Route::resource('articles', ArticleController::class);
