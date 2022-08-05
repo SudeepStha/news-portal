@@ -78,7 +78,7 @@
               href="#"
               aria-expanded="false"
               ><i class="mdi mdi-view-dashboard"></i
-              ><span class="hide-menu">Customer</span></a
+              ><span class="hide-menu">Customer Subscription</span></a
             >
           </li>
           <li class="sidebar-item">

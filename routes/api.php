@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\ArticleApiController;
+use App\Http\Controllers\Api\CompanyApiController;
+use App\Http\Controllers\Api\DesignationApiController;
+use App\Http\Controllers\Api\EmployeeApiController;
+use App\Http\Controllers\Api\MenuApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::apiResource('apicompany', CompanyApiController::class);
+Route::apiResource('apidesignation', DesignationApiController::class)->only('index');
+Route::apiResource('apiemployee', EmployeeApiController::class);
+Route::apiResource('apimenu', MenuApiController::class);
+Route::apiResource('apiarticles', ArticleApiController::class);
