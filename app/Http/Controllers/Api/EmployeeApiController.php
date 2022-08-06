@@ -15,7 +15,7 @@ class EmployeeApiController extends Controller
      */
     public function index()
     {
-        $employee = Employee::class();
+        $employee = Employee::all();
         return response()->json($employee);
     }
 

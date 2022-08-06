@@ -101,13 +101,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="ads_email">Email<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="ads_email"  type="text" name="ads_email" placeholder="Registration Number" required>
+                                    <input class="form-control" id="ads_email"  type="text" name="ads_email" placeholder="Email for ADS" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="ads_contact">Contact<span class="text-danger">*</span></label>
-                                    <input class="form-control" id="ads_contact"  type="text" name="ads_contact" placeholder="Pan Number" required>
+                                    <input class="form-control" id="ads_contact"  type="text" name="ads_contact" placeholder="Contact for ADS" required>
                                 </div>
                             </div>
                         </div>

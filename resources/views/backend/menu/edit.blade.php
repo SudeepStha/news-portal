@@ -36,6 +36,11 @@
                                     <input class="form-control" id="position"  type="text" name="position" placeholder="Position" required value="{{$menu->position}}">
                                 </div>
                             </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input id="status" type="checkbox" name="status" checked value="1">Active
+                                </div>
+                            </div>
                         </div>
     
                         <button type="submit" class="btn btn-primary float-end">Update</button>

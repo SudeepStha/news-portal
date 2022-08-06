@@ -51,28 +51,41 @@ class CompanyController extends Controller
             'ads_contact'=>'required'
         ]);
 
-        $company = new Company();
-        $company->name = $request->name;
-        $company->province = $request->province;
-        $company->district = $request->district;
-        $company->city = $request->city;
-        $company->street = $request->street;
-        $company->contact = $request->contact;
-        $company->email = $request->email;
-        $company->reg_no = $request->reg_no;
-        $company->pan_no = $request->pan_no;
-        $company->ads_email = $request->ads_email;
-        $company->ads_contact = $request->ads_contact;
 
-        if($request->has('image')){
-            $file = $request->image;
-            $newName = time() . $file->getClientOriginalName();
-            $file -> move('companyimage',$newName);
-            $company->image = "companyimage/$newName";
+        if (empty($company)) {
+            
+            $company = new Company();
+            $company->name = $request->name;
+            $company->province = $request->province;
+            $company->district = $request->district;
+            $company->city = $request->city;
+            $company->street = $request->street;
+            $company->contact = $request->contact;
+            $company->email = $request->email;
+            $company->reg_no = $request->reg_no;
+            $company->pan_no = $request->pan_no;
+            $company->ads_email = $request->ads_email;
+            $company->ads_contact = $request->ads_contact;
+
+            if($request->has('image')){
+                $file = $request->image;
+                $newName = time() . $file->getClientOriginalName();
+                $file -> move('companyimage',$newName);
+                $company->image = "companyimage/$newName";
+            }
+            $company->save();
+
+            return redirect()->back()->with('status', 'Your Company details has been created.');
+
+
+        } else {
+            return redirect()->back();
         }
-        $company->save();
+        
 
-        return redirect()->back()->with('status', 'Your Company details has been created.');
+        
+        
+
 
     }
 

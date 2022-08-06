@@ -33,17 +33,14 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="menu_id">Menu<span class="text-danger">*</span></label>
-                                <select class="form-select select2" id="menu_id" name="menu_id[]" multiple='multiple'>
-                                    <option disabled>--- Select Menu ---</option>
+                                <select class="form-select select2" id="menu_id[]" name="menu_id[]" multiple='multiple'>
                                     @foreach ($menu as $menu)
-                                        <option value="{{$menu->id}}
+                                        <option value="{{$menu->id}}"
                                             @foreach ($article->menus as $item)
                                               {{ $menu->id == $item->id ? 'selected' : '' }}
-                                            @endforeach" 
-                                           >
-                                        
-                                        {{$menu->title}}
-                                    </option>
+                                            @endforeach>
+                                            {{$menu->title}}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -52,7 +49,14 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="description">Description<span class="text-danger">*</span></label>
+                                <div id="toolbar-container"></div>
                                 <textarea class="form-control" id="editor" row="5"  type="text" name="description" placeholder="Description">{{$article->description}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="image">Featured Image <span class="text-danger">*</span></label>
+                                <input class="form-control" id="image"  type="file" name="image" >
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Menu;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -50,7 +51,7 @@ class ArticleController extends Controller
 
         $article = new Article();
         $article->title = $request->title;
-        $article->slug = $request->slug;
+        $article->slug = Str::slug($request->slug);
         $article->description = $request->description;
 
         if($request->hasFile('image')){
@@ -102,7 +103,32 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request -> validate([
+            'title' => 'required',
+            'slug' => 'required',
+            'description' => 'required',
+        ]);
+
+
+        $article =  Article::find($id);
+        $article->title = $request->title;
+        $article->slug = Str::slug($request->slug);
+        $article->description = $request->description;
+
+        if($request->hasFile('image')){
+            $fileName = $request->image;
+            $newName = time() . $fileName->getClientOriginalName();
+            $fileName->move('article',$newName);
+            $article->image = "article/$newName";
+
+        }
+
+        $article->update();
+
+        $article->menus()->sync($request->menu_id);
+
+        return redirect()->back()->with('status', 'Your article has been updated successfully.');
+   
     }
 
     /**
@@ -117,5 +143,19 @@ class ArticleController extends Controller
         $article->delete();
 
         return redirect()->back()->with('status','Your article has been deleted successfully.');
+    }
+
+    public function upload(Request $request)
+    {
+        if($request->hasFile('upload')){
+            $file = $request->upload;
+            $newName = time() . $file->getClientOriginalExtension();
+            $file->move('article_image', $newName);
+            $url = asset("article_image/$newName");
+            return response()->json([
+                'filename' => $newName, 'uploaded' => 1, 
+                'url' => $url
+            ]);
+        }
     }
 }

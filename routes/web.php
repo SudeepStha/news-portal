@@ -31,3 +31,4 @@ Route::resource('designation', DesignationController::class);
 Route::resource('employee', EmployeeController::class);
 Route::resource('menu', MenuController::class);
 Route::resource('articles', ArticleController::class);
+Route::post('upload', [ArticleController::class, 'upload'])->name('ckeditor.upload');

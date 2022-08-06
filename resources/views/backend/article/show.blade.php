@@ -8,16 +8,16 @@
             <div class="card">
                 <div class="card-header">
                     <span class="fw-bold fs-3">Article Details</span>
-                    <a href="/article" class="btn btn-secondary float-end mx-2">Back</a>
-                    <a href="/article/{{$article->id}}/edit" class="btn btn-primary float-end">Edit</a>
+                    <a href="/articles" class="btn btn-secondary float-end mx-2">Back</a>
+                    <a href="/articles/{{$article->id}}/edit" class="btn btn-primary float-end">Edit</a>
                 </div>
                 <div class="card-body">
-                    <span class="fw-bold fs-4 text-danger">Title:</span> <br>
-                    <span class="fw-bold fs-5">{{$article->title}}</span> <br>
-                    <span class="fw-bold fs-4 text-danger">Slug:</span> <br>
-                    <span class="fw-bold fs-5">{{$article->slug}}</span> <br>
-                    <span class="fw-bold fs-4 text-danger">Description:</span> <br>
-                    <span class="fw-bold fs-5">{!! $article->description !!}</span> <br>
+                    <div class="fw-bold fs-4 text-danger">Title:</div> 
+                    <div class="fw-bold fs-1">{{$article->title}}</div> 
+                    <div class="fw-bold fs-4 text-danger">Description:</div> 
+                    <div class="fw-bold fs-5">{!! $article->description !!}</div> 
+                    <div class="fw-bold fs-4 text-danger">Featured Image:</div> 
+                    <div class=""> <img src="{{asset($article->image)}}" alt=""> </div>
                 </div>
             </div>
         </div>

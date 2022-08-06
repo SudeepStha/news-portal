@@ -32,13 +32,36 @@
                                 <td>{{$article->title}}</td>
                                 <td>{{$article->slug}}</td>
                                 <td>
-                                        
+                                    @foreach ($article->menus as $item)
+                                        <span class="badge bg-info">{{$item->title }}</span>
+                                    @endforeach
                                 </td>
                                 <td>{!! Str::words($article->description, 4, '...') !!}</td>
                                 <td>
-                                    <div class="d-flex justify-content-evenly">
+                                    <div class="d-flex">
                                         <a href="/articles/{{$article->id}}/edit" class="badge bg-primary">Edit</a>
-                                        <a href="/articles/{{$article->id}}" class="badge bg-info">Show</a>
+                                        <a href="/articles/{{$article->id}}" class="badge bg-info mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $article->id}}">Show</a>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal{{$article->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                  </div>                                            
+                                                <div class="fw-bold fs-4 text-danger">Title:</div> 
+                                                <div class="fw-bold fs-1">{{$article->title}}</div> 
+                                                <div class="fw-bold fs-4 text-danger">Description:</div> 
+                                                <div class="fw-bold fs-5">{!! $article->description !!}</div> 
+                                                <div class="fw-bold fs-4 text-danger">Featured Image:</div> 
+                                                <div class=""> <img src="{{asset($article->image)}}" alt=""> </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- Button trigger modal -->
+                                        {{-- <button type="button" class="badge btn bg-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        demo
+                                        </button> --}}
                                         <form action="/articles/{{$article->id}}" method="post">
                                         @csrf
                                         @method('DELETE')
@@ -50,32 +73,16 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- <div class="row">
-                        @foreach ($article as $article)
-                        <div class="col-md-3">
-                            <div class="card p-2" style="background-color: rgb(199, 192, 192); border-radius: 10px">
-                                <span class="fw-bold fs-4">{{$article->id}}</span><span class="fw-bold fs-5">{{ $article->title}}</span> <br>
-                                {{ $article->slug}} <br>
-                                {!!Str::words( $article->description, 7)!!}
-                                <hr class="bg-danger">
-                                <div class="d-flex justify-content-evenly">
-                                    <a href="/article/{{$article->id}}/edit" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="/article/{{$article->id}}" class="btn btn-info btn-sm">Show</a>
-                                    <a href="" class="btn btn-success btn-sm">Print</a>
-                                    <form action="/article/{{$article->id}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div> --}}
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+
 @endsection
+
+
+  
+  
+  

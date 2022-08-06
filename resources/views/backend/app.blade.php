@@ -392,22 +392,33 @@
     <script src="/dist/js/pages/chart/chart-page-init.js"></script>
 
 
+    
+    {{-- select2  --}}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    <script>
+      $(document).ready(function() {
+        $('.select2').select2();
+      });
+    </script>
     {{-- ckeditor --}}
-<script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
-
-{{-- select2  --}}
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-<script>
-  $(document).ready(function() {
-    $('.select2').select2();
-});
-</script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
 
 
 <script>
   ClassicEditor
-          .create( document.querySelector( '#editor' ) )
+          .create( document.querySelector( '#editor' ),{
+            // plugins: [ 'Image', 'ImageResizeEditing', 'ImageResizeHandles', ... ],
+
+            // toolbar: { items: [ 'toggleImageCaption', 'imageTextAlternative', 'Autoformat']},
+
+            image: {
+              toolbar: [ 'toggleImageCaption', 'imageTextAlternative', 'Image', 'ImageResizeEditing', 'ImageResizeHandles']
+            },
+            ckfinder:{
+              uploadUrl : "{{ route('ckeditor.upload').'?_token='.csrf_token() }}"
+            }
+          } )
           .then( editor => {
                   console.log( editor );
           } )

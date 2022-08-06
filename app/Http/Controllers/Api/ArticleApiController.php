@@ -15,7 +15,7 @@ class ArticleApiController extends Controller
      */
     public function index()
     {
-        $article =Article::class();
+        $article =Article::all();
         return response()->json($article);
     }
 

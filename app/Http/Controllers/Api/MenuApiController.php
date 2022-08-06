@@ -15,7 +15,7 @@ class MenuApiController extends Controller
      */
     public function index()
     {
-        $menu = Menu::class();
+        $menu = Menu::all();
         return response()->json($menu);
     }
 
