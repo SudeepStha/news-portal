@@ -46,15 +46,17 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                                                    <h5 class="modal-title fw-bold fs-3" id="exampleModalLabel">Details</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                  </div>                                            
-                                                <div class="fw-bold fs-4 text-danger">Title:</div> 
-                                                <div class="fw-bold fs-1">{{$article->title}}</div> 
-                                                <div class="fw-bold fs-4 text-danger">Description:</div> 
-                                                <div class="fw-bold fs-5">{!! $article->description !!}</div> 
-                                                <div class="fw-bold fs-4 text-danger">Featured Image:</div> 
-                                                <div class=""> <img src="{{asset($article->image)}}" alt=""> </div>
+                                                </div>                                            
+                                                <div class="container">
+                                                    <div class="fw-bold fs-4 text-danger">Title:</div> 
+                                                    <div class="fw-bold fs-1">{{$article->title}}</div> 
+                                                    <div class="fw-bold fs-4 text-danger">Description:</div> 
+                                                    <div class="fw-bold fs-5">{!! $article->description !!}</div> 
+                                                    <div class="fw-bold fs-4 text-danger">Featured Image:</div> 
+                                                    <div class="mb-4"> <img src="{{asset($article->image)}}" alt=""></div>
+                                                </div>
                                             </div>
                                             </div>
                                         </div>

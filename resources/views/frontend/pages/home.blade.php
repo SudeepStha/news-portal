@@ -24,10 +24,10 @@
             <div class="col-md-12">
                 <div class="card m-3 shadow-lg" style="">
                     <a href="">
-                        <div class="fw-bold fs-3 text-center">
+                        <div class="fw-bold fs-3 text-center m-2">
                             {{$article->title}}
                         </div>  
-                        <div>
+                        <div class="mt-2">
                             <img  class="justify-content-center" src="{{asset($article->image)}}" alt="Loading..." srcset="" style="height: 90vh; width: 100%">  
                         </div> 
                     </a>     
@@ -91,20 +91,20 @@
                                 </div>
                                 <div class="col-md-5 ms-5">
                                     @foreach ($category as $article)
-                                    <div class="card">
-                                        <div class="d-flex">
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="card bg-danger">
-                                                        <img src="{{asset($article->image)}}" alt="">
+                                        <div class="card">
+                                            <div class="d-flex">
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <div class="card">
+                                                            <img src="{{asset($article->image)}}" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span class="fs-5">{{$article->title}}</span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-7 bg-primary">
-                                                    <span class="fs-5">{{$article->title}}</span>
-                                                </div>
                                             </div>
-                                        </div>
-                                    </div> 
+                                        </div> 
                                     @endforeach
                                 </div>
                             </div>
