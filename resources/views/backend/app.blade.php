@@ -401,8 +401,9 @@
         $('.select2').select2();
       });
     </script>
+
     {{-- ckeditor --}}
-  <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
 
 
 <script>

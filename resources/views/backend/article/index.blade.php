@@ -25,7 +25,7 @@
                                 <th>More</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody>  
                             @foreach ($article as $index => $article)
                             <tr>
                                 <td>{{ ++$index }}</td>

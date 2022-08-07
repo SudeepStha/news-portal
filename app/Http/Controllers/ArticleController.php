@@ -48,7 +48,7 @@ class ArticleController extends Controller
             'image' => 'required'
         ]);
 
-
+  
         $article = new Article();
         $article->title = $request->title;
         $article->slug = Str::slug($request->slug);
