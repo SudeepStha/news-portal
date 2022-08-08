@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\Api\ArticleApiController;
 use App\Http\Controllers\Api\CompanyApiController;
 use App\Http\Controllers\Api\DesignationApiController;
@@ -28,3 +29,5 @@ Route::apiResource('apidesignation', DesignationApiController::class)->only('ind
 Route::apiResource('apiemployee', EmployeeApiController::class);
 Route::apiResource('apimenu', MenuApiController::class);
 Route::apiResource('apiarticles', ArticleApiController::class);
+
+Route::get('politics',[ApiController::class,'article']);
