@@ -31,3 +31,4 @@ Route::apiResource('apimenu', MenuApiController::class);
 Route::apiResource('apiarticles', ArticleApiController::class);
 
 Route::get('politics',[ApiController::class,'article']);
+Route::get('menus',[ApiController::class, 'menus']);
