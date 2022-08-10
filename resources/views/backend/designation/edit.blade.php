@@ -8,14 +8,14 @@
             <div class="card">
                 <div class="card-header">
                     <span class="fw-bold fs-3"> Edit Designation Titles</span>
-                    <a href="/designation" class="btn btn-secondary float-end">Back</a>
+                    <a href="{{ route('designation.index') }}" class="btn btn-secondary float-end">Back</a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">{{session('status')}}</div>
                     @endif
                     
-                    <form action="/designation/{{$designation->id}}" method="post">
+                    <form action="{{ route('designation.update', $designation->id) }}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="row">

@@ -11,7 +11,7 @@
                 @endif
                 <div class="card-header">
                     <span class="fw-bold fs-3">Designation</span>
-                    <a href="/designation/create" class="btn btn-secondary float-end">Create Designation</a>
+                    <a href="{{ route('designation.create') }}" class="btn btn-secondary float-end">Create Designation</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
@@ -29,8 +29,8 @@
                                 <td>{{$designation->title}}</td>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="/designation/{{$designation->id}}/edit" class="badge btn bg-primary me-2">Edit</a>
-                                    <form action="/designation/{{$designation->id}}" method="post">
+                                        <a href="{{ route('designation.edit', $designation->id) }}" class="badge btn bg-primary me-2">Edit</a>
+                                    <form action="{{ route('designation.destroy', $designation->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="badge btn bg-danger">Delete</button>

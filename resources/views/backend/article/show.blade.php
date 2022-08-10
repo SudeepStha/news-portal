@@ -1,4 +1,4 @@
-@extends('backend.app')
+{{-- @extends('backend.app')
 
 @section('content')
     
@@ -8,8 +8,8 @@
             <div class="card">
                 <div class="card-header">
                     <span class="fw-bold fs-3">Article Details</span>
-                    <a href="/articles" class="btn btn-secondary float-end mx-2">Back</a>
-                    <a href="/articles/{{$article->id}}/edit" class="btn btn-primary float-end">Edit</a>
+                    <a href="{{route('articles.index')}}" class="btn btn-secondary float-end mx-2">Back</a>
+                    <a href="/{{route('articles.edit', $article->id)}}" class="btn btn-primary float-end">Edit</a>
                 </div>
                 <div class="card-body">
                     <div class="fw-bold fs-4 text-danger">Title:</div> 
@@ -24,4 +24,4 @@
     </div>
 </div>
 
-@endsection
+@endsection --}}

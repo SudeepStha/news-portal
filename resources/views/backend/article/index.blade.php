@@ -11,7 +11,7 @@
                 @endif
                 <div class="card-header">
                     <span class="fw-bold fs-3">Articles</span>
-                    <a href="/articles/create" class="btn btn-primary float-end">Add articles</a>
+                    <a href="{{route('articles.create')}}" class="btn btn-primary float-end">Add articles</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
@@ -39,8 +39,8 @@
                                 <td>{!! Str::words($article->description, 4, '...') !!}</td>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="/articles/{{$article->id}}/edit" class="badge bg-primary">Edit</a>
-                                        <a href="/articles/{{$article->id}}" class="badge bg-info mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $article->id}}">Show</a>
+                                        <a href="{{route('articles.edit', $article->id)}}" class="badge bg-primary">Edit</a>
+                                        <a href="{{route('articles.show', $article->id)}}" class="badge bg-info mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $article->id}}">Show</a>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal{{$article->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -64,7 +64,7 @@
                                         {{-- <button type="button" class="badge btn bg-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         demo
                                         </button> --}}
-                                        <form action="/articles/{{$article->id}}" method="post">
+                                        <form action="{{route('articles.destroy', $article->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
                                             <button type="submit" class="badge btn bg-danger">Delete</button>

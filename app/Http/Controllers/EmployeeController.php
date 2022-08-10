@@ -73,7 +73,8 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $employee = Employee::find($id);
-        return view('backend.employee.edit', compact('employee'));
+        $designation = Designation::all();
+        return view('backend.employee.edit', compact('employee', 'designation'));
     }
 
     /**

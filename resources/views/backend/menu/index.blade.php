@@ -38,8 +38,8 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <a href="/menu/{{$menu->id}}/edit" class="badge bg-primary mx-2">Edit</a>
-                                                    <form action="/menu/{{$menu->id}}" method="post">
+                                                    <a href="{{ route('menu.edit', $menu->id)}}" class="badge bg-primary mx-2">Edit</a>
+                                                    <form action="{{ rotue('menu.destroy', $menu->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                         <button type="submit" class="badge btn bg-danger">Delete</button>
@@ -60,7 +60,7 @@
                                 <span class="fw-bold fs-3">Create Menu</span>
                             </div>
                             <div class="card-body">
-                                <form action="/menu" method="post">
+                                <form action="{{rotue('menu.store')}}" method="post">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-12">    

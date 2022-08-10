@@ -11,10 +11,10 @@
                 @endif
                 <div class="card-header">
                     <span class="fw-bold fs-3">Edit Menu</span>
-                    <a href="/menu" class="btn btn-secondary float-end">Back</a>
+                    <a href="{{route('menu.index')}}" class="btn btn-secondary float-end">Back</a>
                 </div>
                 <div class="card-body">
-                    <form action="/menu/{{$menu->id}}" method="post">
+                    <form action="{{route('menu.update', $menu->id)}}" method="post">
                         @csrf
                         @method('put')
                         <div class="row">

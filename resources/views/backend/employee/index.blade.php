@@ -32,8 +32,8 @@
                                 <td>{{$employee->designation->title}}</td>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="/employee/{{$employee->id}}/edit" class="badge bg-primary mx-2">Edit</a>
-                                        <form action="/employee/{{$employee->id}}" method="post">
+                                        <a href="{{ route('employee.edit', $employee->id) }}" class="badge bg-primary mx-2">Edit</a>
+                                        <form action="{{ route('employee.destroy', $employee->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="badge btn bg-danger">Delete</button>

@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <span class="fw-bold fs-3">Create Company</span>
-                    <a href="/company" class="btn btn-secondary float-end">Back</a>
+                    <a href="{{ route('company.index') }}" class="btn btn-secondary float-end">Back</a>
                 </div>
                 <div class="card-body">
                     
@@ -16,7 +16,7 @@
                         <div class="alert alert-success">{{session('status')}}</div>
                     @endif
 
-                    <form action="/company" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('company.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-5">

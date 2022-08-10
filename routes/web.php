@@ -26,9 +26,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('company', CompanyController::class);
-Route::resource('designation', DesignationController::class);
-Route::resource('employee', EmployeeController::class);
-Route::resource('menu', MenuController::class);
-Route::resource('articles', ArticleController::class);
+Route::resource('company', CompanyController::class, ['names' => 'company']);
+Route::resource('designation', DesignationController::class, ['names' => 'designation']);
+Route::resource('employee', EmployeeController::class, ['names' => 'employee']);
+Route::resource('menu', MenuController::class, ['names' => 'menu']);
+Route::resource('articles', ArticleController::class, ['names' => 'articles']);
 Route::post('upload', [ArticleController::class, 'upload'])->name('ckeditor.upload');

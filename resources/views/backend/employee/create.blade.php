@@ -8,13 +8,13 @@
             <div class="card">
                 <div class="card-header">
                     <span class="fw-bold fs-3">Create Employee</span>
-                    <a href="/employee" class="btn btn-secondary float-end">Back</a>
+                    <a href="{{ route('employee.index') }}" class="btn btn-secondary float-end">Back</a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">{{session('status')}}</div>
                     @endif
-                    <form action="/employee" method="post">
+                    <form action="{{ route('employee.store') }}" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">    

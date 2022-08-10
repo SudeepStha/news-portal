@@ -16,7 +16,7 @@
           <li class="sidebar-item">
             <a
               class="sidebar-link waves-effect waves-dark sidebar-link"
-              href="/company"
+              href="{{ route('company.index') }}"
               aria-expanded="false"
               ><i class="mdi mdi-view-dashboard"></i
               ><span class="hide-menu">Company Setup</span></a
@@ -32,13 +32,13 @@
             >
             <ul aria-expanded="false" class="collapse first-level">
               <li class="sidebar-item">
-                <a href="/designation" class="sidebar-link"
+                <a href="{{ route('designation.index') }}" class="sidebar-link"
                   ><i class="mdi mdi-note-outline"></i
                   ><span class="hide-menu"> Designation </span></a
                 >
               </li>
               <li class="sidebar-item">
-                <a href="/employee" class="sidebar-link"
+                <a href="{{ route('employee.index') }}" class="sidebar-link"
                   ><i class="mdi mdi-note-plus"></i
                   ><span class="hide-menu"> Employee(s)</span></a
                 >
@@ -48,7 +48,7 @@
           <li class="sidebar-item">
             <a
               class="sidebar-link waves-effect waves-dark sidebar-link"
-              href="/menu"
+              href="{{ route('menu.index') }}"
               aria-expanded="false"
               ><i class="mdi mdi-view-dashboard"></i
               ><span class="hide-menu">Create Menu</span></a
@@ -57,7 +57,7 @@
           <li class="sidebar-item">
             <a
               class="sidebar-link waves-effect waves-dark sidebar-link"
-              href="/articles"
+              href="{{ route('articles.index') }}"
               aria-expanded="false"
               ><i class="mdi mdi-view-dashboard"></i
               ><span class="hide-menu">Post Article</span></a

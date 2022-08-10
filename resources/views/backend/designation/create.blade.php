@@ -8,14 +8,14 @@
             <div class="card">
                 <div class="card-header">
                     <span class="fw-bold fs-3">Designation Titles</span>
-                    <a href="/designation" class="btn btn-secondary float-end">Back</a>
+                    <a href="{{ route('designation.index') }}" class="btn btn-secondary float-end">Back</a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">{{session('status')}}</div>
                     @endif
                     
-                    <form action="/designation" method="post">
+                    <form action="{{ route('designation.store') }}" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">

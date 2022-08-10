@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <span class="fw-bold fs-3">Edit Company</span>
-                    <a href="/company" class="btn btn-secondary float-end">Back</a>
+                    <a href="{{ route('company.index') }}" class="btn btn-secondary float-end">Back</a>
                 </div>
                 <div class="card-body">
                     
@@ -16,7 +16,7 @@
                         <div class="alert alert-success">{{session('status')}}</div>
                     @endif
 
-                    <form action="/company/{{$company->id}}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('company.update', $company->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="row">

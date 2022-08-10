@@ -24,11 +24,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::apiResource('apicompany', CompanyApiController::class);
-Route::apiResource('apidesignation', DesignationApiController::class)->only('index');
-Route::apiResource('apiemployee', EmployeeApiController::class);
-Route::apiResource('apimenu', MenuApiController::class);
-Route::apiResource('apiarticles', ArticleApiController::class);
+Route::apiResource('company', CompanyApiController::class);
+Route::apiResource('designation', DesignationApiController::class)->only('index');
+Route::apiResource('employee', EmployeeApiController::class);
+Route::apiResource('menu', MenuApiController::class);
+Route::apiResource('articles', ArticleApiController::class);
 
 Route::get('politics',[ApiController::class,'article']);
 Route::get('menus',[ApiController::class, 'menus']);

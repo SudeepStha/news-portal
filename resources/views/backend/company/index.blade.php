@@ -9,7 +9,7 @@
                 @if(empty($company))
                     <div class="card-header">
                         <span class="fw-bold fs-3">Company Details</span>
-                        <a href="/company/create" class="btn btn-secondary float-end">Create Company</a>
+                        <a href="{{ route('company.create') }}" class="btn btn-secondary float-end">Create Company</a>
                     </div>
                 @endif
                 
@@ -21,7 +21,7 @@
                                 <span class="fw-bold fs-4">
                                     Company Details
                                 </span>
-                                <a href="/company/{{$company->id}}/edit" class="btn btn-secondary float-end">Edit</a>
+                                <a href="{{ route('company.edit',$company->id) }}" class="btn btn-secondary float-end">Edit</a>
                                 </div>
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">

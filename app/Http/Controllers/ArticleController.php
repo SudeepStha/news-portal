@@ -149,7 +149,7 @@ class ArticleController extends Controller
     {
         if($request->hasFile('upload')){
             $file = $request->upload;
-            $newName = time() . $file->getClientOriginalExtension();
+            $newName = time() . '.' . $file->getClientOriginalExtension();
             $file->move('article_image', $newName);
             $url = asset("article_image/$newName");
             return response()->json([

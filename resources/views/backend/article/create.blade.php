@@ -8,13 +8,13 @@
             <div class="card">
                 <div class="card-header">
                     <span class="fw-bold fs-3">Create Article</span>
-                    <a href="/articles" class="btn btn-secondary float-end">Back</a>
+                    <a href="{{route('article.index') }}" class="btn btn-secondary float-end">Back</a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">{{session('status')}}</div>
                     @endif
-                    <form action="/articles" method="post" enctype="multipart/form-data">
+                    <form action="{{route('articles.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">

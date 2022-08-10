@@ -8,13 +8,13 @@
             <div class="card">
                 <div class="card-header">
                     <span class="fw-bold fs-3">Edit Article</span>
-                    <a href="/articles" class="btn btn-secondary float-end">Back</a>
+                    <a href="{{route('articles.index') }}" class="btn btn-secondary float-end">Back</a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">{{session('status')}}</div>
                     @endif
-                    <form action="/articles/{{$article->id}}" method="post">
+                    <form action="{{route('articles.update', $article->id)}}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="row">
