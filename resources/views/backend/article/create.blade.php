@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <span class="fw-bold fs-3">Create Article</span>
-                    <a href="{{route('article.index') }}" class="btn btn-secondary float-end">Back</a>
+                    <a href="{{route('articles.index') }}" class="btn btn-secondary float-end">Back</a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))

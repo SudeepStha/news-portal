@@ -16,7 +16,7 @@ class CompanyApiController extends Controller
      */
     public function index()
     {
-        $company = Company::all();
+        $company = Company::first();
         return response()->json($company);
     }
 

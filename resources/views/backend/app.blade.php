@@ -413,9 +413,11 @@
 
             // toolbar: { items: [ 'toggleImageCaption', 'imageTextAlternative', 'Autoformat']},
 
-            image: {
-              toolbar: [ 'toggleImageCaption', 'imageTextAlternative', 'Image', 'ImageResizeEditing', 'ImageResizeHandles']
-            },
+            
+            // image: {
+            //   toolbar: [ 'toggleImageCaption', 'imageTextAlternative', 'Image', 'ImageResizeEditing', 'ImageResizeHandles']
+            // },
+
             ckfinder:{
               uploadUrl : "{{ route('ckeditor.upload').'?_token='.csrf_token() }}"
             }
@@ -427,8 +429,6 @@
                   console.error( error );
           } );
 </script>
-
-
 
   </body>
 </html>
