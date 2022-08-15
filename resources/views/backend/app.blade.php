@@ -30,11 +30,13 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 
-    <style>
+    {{-- <style>
       .ck-editor__editable_inline {
         min-height: 300px;
       }
-    </style>
+    </style> --}}
+
+    <script src="../ckeditor/ckeditor.js"></script>
 
   </head>
 
@@ -403,10 +405,10 @@
     </script>
 
     {{-- ckeditor --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script> --}}
 
 
-<script>
+{{-- <script>
   ClassicEditor
           .create( document.querySelector( '#editor' ),{
             // plugins: [ 'Image', 'ImageResizeEditing', 'ImageResizeHandles', ... ],
@@ -428,6 +430,13 @@
           .catch( error => {
                   console.error( error );
           } );
+</script> --}}
+
+<script>
+  CKEDITOR.replace( 'editor',{
+    filebrowserUploadUrl: "{{ route('upload', ['_token' => csrf_token()])}}",
+    filebrowserUploadMethod: 'form'
+  });
 </script>
 
   </body>

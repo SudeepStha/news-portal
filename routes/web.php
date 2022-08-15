@@ -31,4 +31,8 @@ Route::resource('designation', DesignationController::class, ['names' => 'design
 Route::resource('employee', EmployeeController::class, ['names' => 'employee']);
 Route::resource('menu', MenuController::class, ['names' => 'menu']);
 Route::resource('articles', ArticleController::class, ['names' => 'articles']);
-Route::post('upload', [ArticleController::class, 'upload'])->name('ckeditor.upload');
+
+// Route::post('upload', [ArticleController::class, 'upload'])->name('ckeditor.upload');
+// Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
+
+Route::post('upload', [ArticleController::class, 'upload'])->name('upload');

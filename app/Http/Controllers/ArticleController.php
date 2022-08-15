@@ -145,17 +145,50 @@ class ArticleController extends Controller
         return redirect()->back()->with('status','Your article has been deleted successfully.');
     }
 
+    // Image upload for ckeditor 5
+
+    // public function upload(Request $request)
+    // {
+    //     if($request->hasFile('upload')){
+    //         $file = $request->upload;
+    //         $newName = time() . '.' . $file->getClientOriginalExtension();
+    //         $file->move('article_image', $newName);
+    //         $url = asset("article_image/$newName");
+    //         return response()->json([
+    //             'filename' => $newName, 'uploaded' => 1, 
+    //             'url' => $url
+    //         ]);
+    //     }
+    // }
+
+    //Image upload for ckeditor4
+
     public function upload(Request $request)
     {
-        if($request->hasFile('upload')){
-            $file = $request->upload;
-            $newName = time() . '.' . $file->getClientOriginalExtension();
-            $file->move('article_image', $newName);
-            $url = asset("article_image/$newName");
-            return response()->json([
-                'filename' => $newName, 'uploaded' => 1, 
-                'url' => $url
-            ]);
+        if($request->hasFile('upload')) {
+            //get filename with extension
+            $filenamewithextension = $request->file('upload')->getClientOriginalName();
+       
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+       
+            //get file extension
+            $extension = $request->file('upload')->getClientOriginalExtension();
+       
+            //filename to store
+            $filenametostore = $filename.'_'.time().'.'.$extension;
+       
+            //Upload File
+            $request->file('upload')->storeAs('public/uploads', $filenametostore);
+  
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('storage/uploads/'.$filenametostore);
+            $msg = 'Image successfully uploaded';
+            $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+              
+            // Render HTML output
+            @header('Content-type: text/html; charset=utf-8');
+            echo $re;
         }
     }
 }

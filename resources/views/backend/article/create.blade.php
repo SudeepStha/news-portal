@@ -43,7 +43,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="description">Description<span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="editor" row="5"  type="text" name="description" placeholder="Description"></textarea>
+                                <textarea class="form-control" id="editor" rows="10" cols="80"  type="text" name="description" placeholder="Description"></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
