@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CompanyResource;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\Resource_;
@@ -17,7 +18,7 @@ class CompanyApiController extends Controller
     public function index()
     {
         $company = Company::first();
-        return response()->json($company);
+        return CompanyResource::collection($company);
     }
 
     /**
@@ -40,7 +41,7 @@ class CompanyApiController extends Controller
     public function show($id)
     {
         $company = Company::find($id);
-        return response()->json($company);
+        return CompanyResource::collection($company);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DesignationResouce;
 use App\Models\Designation;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class DesignationApiController extends Controller
     public function index()
     {
         $designation = Designation::all();
-        return response()->json($designation);
+        return DesignationResouce::collection($designation);
     }
 
     /**
@@ -39,7 +40,7 @@ class DesignationApiController extends Controller
     public function show($id)
     {
         $designation = Designation::find($id);
-        return response()->json($designation);
+        return DesignationResouce::collection($designation);
     }
 
     /**

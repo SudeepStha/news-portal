@@ -20,6 +20,7 @@ class MenuResource extends JsonResource
             'title' => $this->title,
             'slug' => $this->slug,
             'position' => $this->position,
+            'status' => $this->status,
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\MenuResource;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class MenuApiController extends Controller
     public function index()
     {
         $menu = Menu::all();
-        return response()->json($menu);
+        return MenuResource::collection($menu);
     }
 
     /**
@@ -39,7 +40,7 @@ class MenuApiController extends Controller
     public function show($id)
     {
         $menu = Menu::find($id);
-        return response()->json($menu);
+        return MenuResource::collection($menu);
     }
 
     /**

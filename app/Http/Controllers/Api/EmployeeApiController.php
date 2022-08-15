@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class EmployeeApiController extends Controller
     public function index()
     {
         $employee = Employee::all();
-        return response()->json($employee);
+        return EmployeeResource::collection($employee);
     }
 
     /**
@@ -39,7 +40,7 @@ class EmployeeApiController extends Controller
     public function show($id)
     {
         $employee = Employee::find($id);
-        return response()->json($employee);
+        return EmployeeResource::collection($employee);
     }
 
     /**
