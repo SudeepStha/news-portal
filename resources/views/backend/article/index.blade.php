@@ -40,32 +40,7 @@
                                 <td>
                                     <div class="d-flex">
                                         <a href="{{route('articles.edit', $article->id)}}" class="badge bg-primary">Edit</a>
-                                        <a href="{{route('articles.show', $article->id)}}" class="badge bg-info mx-2">Show</a>
-                                        
-                                        {{-- data-bs-toggle="modal" data-bs-target="#exampleModal{{ $article->id}}" --}}
-                                        <!-- Modal -->
-                                        {{-- <div class="modal fade" id="exampleModal{{$article->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-xl">
-                                                <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title fw-bold fs-3" id="exampleModalLabel">Details</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>                                            
-                                                <div class="container">
-                                                    <div class="fw-bold fs-4 text-danger">Title:</div> 
-                                                    <div class="fw-bold fs-1">{{$article->title}}</div> 
-                                                    <div class="fw-bold fs-4 text-danger">Description:</div> 
-                                                    <div class="fw-bold fs-5">{!! $article->description !!}</div> 
-                                                    <div class="fw-bold fs-4 text-danger">Featured Image:</div> 
-                                                    <div class="mb-4"><img src="{{asset($article->image)}}" alt="" class="img-fluid"></div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </div> --}}
-                                        <!-- Button trigger modal -->
-                                        {{-- <button type="button" class="badge btn bg-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        demo
-                                        </button> --}}
+                                        <a href="{{route('articles.show', $article->id)}}" class="badge bg-info mx-2">Show</a>                                        
                                         <form action="{{route('articles.destroy', $article->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
